@@ -1,15 +1,29 @@
-# simple-java-maven-app
+# SonarQube Basic Maven Example
 
-This repository is for the
-[Build a Java app with Maven](https://jenkins.io/doc/tutorials/build-a-java-app-with-maven/)
-tutorial in the [Jenkins User Documentation](https://jenkins.io/doc/).
+This simple Maven project is importing JaCoCo's coverage report.
+<br /><br />
 
-The repository contains a simple Java application which outputs the string
-"Hello world!" and is accompanied by a couple of unit tests to check that the
-main application works as expected. The results of these tests are saved to a
-JUnit XML report.
+## Usage
 
-The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
-you'll be creating yourself during the tutorial and the `scripts` subdirectory
-contains a shell script with commands that are executed when Jenkins processes
-the "Deliver" stage of your Pipeline.
+* Download SonarQube which matches with your Java version from [here](https://www.sonarqube.org/downloads/)
+
+* Start the SonarQube server\
+**For Windows**\
+`YOUR_DIR_PATH\sonarqube\bin\windows-x86-xx\StartSonar.bat`\
+**For other operating systems like Linux/Ubuntu**\
+`YOUR_DIR_PATH/sonarqube/bin/[OS]/sonar.sh console`
+
+* Once the SonarQube Server is up and running then you can visit the SonarQube Dashboard at http://localhost:9000/dashboard/ \
+Default System administrator credentials are **admin/admin**
+
+* Build the project, execute all the tests and analyze the project with SonarQube Scanner for Maven\
+**`mvn clean verify sonar:sonar`**\
+or\
+**`mvn clean install sonar:sonar`**
+        
+* Click on the project name to see the code quality inspection
+<br />
+
+## Documentation
+
+[SonarScanner for Maven](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/)
